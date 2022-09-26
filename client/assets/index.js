@@ -38,13 +38,13 @@ async function displayBeastData() {
 
 displayBeastData();
 
-function createNewBeast() {
+function createNewBeast(e) {
     e.preventDefault();
 
     // Extract data into object
     const data = {
-        name: e.target.name,
-        encounterRate: e.target.encounterRate
+        name: e.target.name.value,
+        encounterRate: e.target.encounterRate.value
     }
 
     console.log(data);
@@ -54,3 +54,7 @@ function createNewBeast() {
     // Make a fetch request sending the data
     //fetch("http://localhost:3000/beasts", )
 }
+
+const form = document.querySelector("#createBeast");
+
+form.addEventListener("submit", createNewBeast)
