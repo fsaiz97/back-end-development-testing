@@ -17,8 +17,13 @@ app.get("/beasts", (req, res) => {
 })
 
 // :name treats name as a variable, stored in rep.params
-app.get("/beasts/:name", (req, res) => {
-    let filtered = beasts.filter(beasts => beasts.name == req.params.name);
+// app.get("/beasts/:name", (req, res) => {
+//     const filtered = beasts.filter(beast => beast.name === req.params.name);
+//     res.send(filtered[0]);
+// })
+
+app.get("/beasts/:id", (req, res) => {
+    const filtered = beasts.filter(beast => beast.id === Number(req.params.id));
     res.send(filtered[0]);
 })
 
