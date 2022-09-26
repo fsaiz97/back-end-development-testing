@@ -4,6 +4,7 @@ const express = require("express");
 const cors = require("cors");
 
 const beasts = require("./beasts");
+const logRoute = require("./route-logger");
 
 
 function randomIndex(arr) {
@@ -19,6 +20,9 @@ const app = express();
 app.use(cors());
 // Tell Express to read the body of POST requests
 app.use(express.json())
+
+// Add middleware to log route
+app.use(logRoute);
 
 // Set up the server routes
 app.get("/", (req, res) => {
