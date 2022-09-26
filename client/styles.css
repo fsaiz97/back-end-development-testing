@@ -16,7 +16,12 @@ h1 {
     margin: 10px;
 }
 
+a {
+    background-color: transparent;
+}
+
 .beast {
+    width: 70%;
     background-color: rgb(60, 147, 60);
     padding: 10px;
 }
@@ -30,6 +35,6 @@ h1 {
 }
 
 img {
-    width: 20px;
+    width: 25px;
     margin-left: 10px;
 }

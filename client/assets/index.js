@@ -17,18 +17,26 @@ async function displayBeastData() {
 
     // Loop through the beast data
     for (let beast of beasts) {
-        // Create an HTML element
+        // Create an beast div
         const elem = document.createElement("div");
         elem.className = "beast";
 
+        // Create anchor tag
+        const link = document.createElement("a");
+
+        // Set link's content
+        link.textContent = beast["name"];
+        // link.href = `http://localhost:3000/beasts/${beast['id']}`
+        link.href = `beast.html?id=${beast['id']}`;
+
         // Create image element
         const img = document.createElement("img");
-        path = beast.sprite || "assets/images/default.png";
-        img.src = "../server/" + path
+        path = beast.sprite || "default.png";
+        img.src = "../server/assets/images/" + path;
         img.alt = beast.name;
 
         // Set element's content
-        elem.textContent = beast["name"];
+        elem.appendChild(link);
         elem.append(img)
 
         // Add the element to the cage

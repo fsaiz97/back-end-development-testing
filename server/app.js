@@ -22,7 +22,7 @@ app.use(cors());
 app.use(express.json())
 
 // Add middleware to log route
-app.use(logRoute);
+// app.use(logRoute());
 
 // Set up the server routes
 app.get("/", (req, res) => {
@@ -45,28 +45,41 @@ app.get("/beasts/random", (req, res) => {
 })
 
 app.get("/beasts/:searchTerm", (req, res) => {
+    try {
 
-    // set up regexs
-    const idRegex = /\d+/;
-    const nameRegex = /\w+/;
-
-    // check if the search term is an id
-    if (idRegex.test(req.params.searchTerm)) {
-        res.status(200).send(beasts[req.params.searchTerm]);
-    } else if (nameRegex.test(req.params.searchTerm)) { // check if search term is a name
-        const filtered = beasts.filter(beast => beast.name.toLowerCase() === req.params.searchTerm.toLowerCase())
-        if (filtered.length > 0) {
-            res.status(200).send(filtered[0]);
-        } else {
-            res.status(404).send( {error: "Monster not found."} )
+        if (!req.params.searchTerm) {
+            throw "Invalid input"
         }
-    } else {
-        res.status(404).send({ error: "Invalid search term."})
+
+        // set up regexs
+        const idRegex = /\d+/;
+        const nameRegex = /\w+/;
+
+        // check if the search term is an id
+        if (idRegex.test(req.params.searchTerm)) {
+            id = parseInt(req.params.searchTerm);
+            if (id < 0 || id > beasts.length) {
+                throw "No such beast";
+            } else {
+                res.status(200).send(beasts[id]);
+            }
+        } else if (nameRegex.test(req.params.searchTerm)) { // check if search term is a name
+            const filtered = beasts.filter(beast => beast.name.toLowerCase() === req.params.searchTerm.toLowerCase())
+            if (filtered.length > 0) {
+                res.status(200).send(filtered[0]);
+            } else {
+                throw "Monster not found.";
+            }
+        } else {
+            throw "Invalid search term.";
+        }
+    } catch (e) {
+        console.log(e);
+        res.status(400).send({ error: e })
     }
 })
 
-app.post("/beasts", (req, res) => {
-    // Grab the beast data
+app.post("/beasts", (req, res) => { // Grab the beast data
     const newBeast = req.body;
     // Select an ID for the new beast
     newBeast["id"] = beasts.length;

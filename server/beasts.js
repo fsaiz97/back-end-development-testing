@@ -10,7 +10,7 @@ let beasts = [
         description: "A one-eyed giant",
         encounterRate: 0.05,
         loot: ["Cyclops eye", "sheep", "blood"],
-        sprite: "assets/images/cyclops.jpg"
+        sprite: "cyclops.jpg"
     },
     {
         id: 1,
@@ -19,7 +19,8 @@ let beasts = [
         dangerRating: 5,
         description: "Really good looking, but slightly psychotic",
         encounterRate: 0.5,
-        loot: ["haunting melody", "sailors' bones", "tail"]
+        loot: ["haunting melody", "sailors' bones", "tail"],
+        sprite: "siren.jpg"
     },
     {
         id: 2,
@@ -28,7 +29,8 @@ let beasts = [
         dangerRating: 4,
         description: "Half-man, half-bull",
         encounterRate: 0.3,
-        loot: ["six pack", "horns", "thread"]
+        loot: ["six pack", "horns", "thread"],
+        sprite: "minotaur.jpg"
     },
     {
         id: 3,
@@ -37,7 +39,8 @@ let beasts = [
         dangerRating: 3,
         description: "A proud, noble creature. Treat it with respect if you value your life.",
         encounterRate: 0.2,
-        loot: ["Hippogriff's claw", "Wing"]
+        loot: ["Hippogriff's claw", "Wing"],
+        sprite: "hippogriff.jpg"
     }, {
         id: 4,
         name: "Dialga",
@@ -45,7 +48,8 @@ let beasts = [
         dangerRating: 5,
         description: "The lord of time in the Pokemon universe. Has awesome power.",
         encounterRate: 0.01,
-        loot: ["Red Chain", "Adamant Crystal"]
+        loot: ["Red Chain", "Adamant Crystal"],
+        sprite: "dialga.png"
     }, {
         id: 5,
         name: "Slime",
@@ -53,7 +57,8 @@ let beasts = [
         dangerRating: 0,
         description: "It's a slime.",
         encounterRate: 0.99,
-        loot: ["slime"]
+        loot: ["slime"],
+        sprite: "slime.jpg"
     }, {
         id: 6,
         name: "Kuriboh",
@@ -61,7 +66,8 @@ let beasts = [
         dangerRating: 1,
         description: "A ball of fluff with hidden power inside.",
         encounterRate: 0.05,
-        loot: []
+        loot: [],
+        sprite: "kuriboh.png"
     }, {
         id: 7,
         name: "Chocobo",
@@ -69,7 +75,8 @@ let beasts = [
         dangerRating: 2,
         description: "A tall, yellow flightless bird often seen roaming the grasslands. If you can lure it with vegetables, it will let you ride it.",
         encounterRate: 0.3,
-        loot: ["Feather"]
+        loot: ["Feather"],
+        sprite: "chocobo.png"
     }, {
         id: 8,
         name: "Redcap",
@@ -77,7 +84,8 @@ let beasts = [
         dangerRating: 2,
         description: "A type of malevolent, murderous goblin. They are said to inhabit ruined castles along the Anglo-Scottish border, especially those that were the scenes of tyranny or wicked deeds and is known for soaking their cap in the blood of their victims.",
         encounterRate: 0.15,
-        loot: ["Blood-soaked cap", "Iron boots", "Pike"]
+        loot: ["Blood-soaked cap", "Iron boots", "Pike"],
+        sprite: "redcap.png"
     }, {
         id: 9,
         name: "Kraken",
@@ -85,7 +93,8 @@ let beasts = [
         dangerRating: 4,
         description: "A gigantic squid with a reputation for attacking ships unlucky enough to cross it's path.",
         encounterRate: 0.06,
-        loot: ["Tentacles", "Beak"]
+        loot: ["Tentacles", "Beak"],
+        sprite: "kraken.png"
     }
 
 ];
