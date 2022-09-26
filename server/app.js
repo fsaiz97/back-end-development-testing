@@ -39,13 +39,11 @@ app.get("/beasts/random", (req, res) => {
 })
 
 app.get("/beasts/:id", (req, res) => {
-    if (req.params.id >= beasts.length || req.params.id < 0) {
-        res.status(404).send({ error: "This beast is extinct."});
-    } else if (typeof req.params.id !== "number") {
-        res.status(404).send({ error: "That is not a number"});
-    } else {
+    if (0 <= req.params.id && req.params.id <= beasts.length) {
         const filtered = beasts.filter(beast => beast.id === Number(req.params.id));
         res.send(filtered[0]);
+    } else {
+        res.status(404).send({ error: "You messed up" })
     }
     
 })
