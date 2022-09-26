@@ -44,14 +44,18 @@ app.get("/beasts/:searchTerm", (req, res) => {
     const idRegex = /\d+/;
     const nameRegex = /\w+/;
 
-    // check if the search term is an integer
+    // check if the search term is an id
     if (idRegex.test(req.params.searchTerm)) {
         res.status(200).send(beasts[req.params.searchTerm]);
-    } else if (nameRegex.test(req.params.searchTerm)) {
+    } else if (nameRegex.test(req.params.searchTerm)) { // check if search term is a name
         const filtered = beasts.filter(beast => beast.name.toLowerCase() === req.params.searchTerm.toLowerCase())
-        res.status(200).send(filtered[0]);
+        if (filtered.length > 0) {
+            res.status(200).send(filtered[0]);
+        } else {
+            res.status(404).send( {error: "Monster not found."} )
+        }
     } else {
-        res.status(404).send({ error: "Monster not found."})
+        res.status(404).send({ error: "Invalid search term."})
     }
 })
 
