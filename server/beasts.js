@@ -9,7 +9,8 @@ let beasts = [
         dangerRating: 3,
         description: "A one-eyed giant",
         encounterRate: 0.05,
-        loot: ["Cyclops eye", "sheep", "blood"]
+        loot: ["Cyclops eye", "sheep", "blood"],
+        sprite: "assets/images/cyclops.jpg"
     },
     {
         id: 1,

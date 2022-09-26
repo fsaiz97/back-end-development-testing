@@ -28,3 +28,8 @@ h1 {
 .beast:last-child {
     border-radius: 0 0 25% 25%;
 }
+
+img {
+    width: 20px;
+    margin-left: 10px;
+}

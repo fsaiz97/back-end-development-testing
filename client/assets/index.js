@@ -23,9 +23,8 @@ async function displayBeastData() {
 
         // Create image element
         const img = document.createElement("img");
-        img.src = "assets/images/0.jpg";
-        img.alt = "Monster"
-        img.width = "30";
+        img.src = "../server/" + beast.sprite || "assets/images/default.png";
+        img.alt = beast.name;
 
         // Set element's content
         elem.textContent = beast["name"];
@@ -38,7 +37,7 @@ async function displayBeastData() {
 
 displayBeastData();
 
-function createNewBeast(e) {
+async function createNewBeast(e) {
     e.preventDefault();
 
     // Extract data into object
@@ -47,14 +46,22 @@ function createNewBeast(e) {
         encounterRate: e.target.encounterRate.value
     }
 
-    console.log(data);
-
     // Set the options for the fetch request
+    const options = {
+        method: "POST",
+        headers: {
+            "Content-Type": "application.json"
+        },
+        body: JSON.stringify(data)
+    }
 
     // Make a fetch request sending the data
-    //fetch("http://localhost:3000/beasts", )
+    const response = await fetch("http://localhost:3000/beasts", options);
+
+    if(response.status == 200) {
+        alert("Creature created");
+    }
 }
 
 const form = document.querySelector("#createBeast");
-
-form.addEventListener("submit", createNewBeast)
+form.addEventListener("submit", createNewBeast);
