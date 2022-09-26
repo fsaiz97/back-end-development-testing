@@ -1,15 +1,20 @@
 // default server app filename
 
 const express = require("express");
+const cors = require("cors");
 
 const beasts = require("./beasts");
+
 
 function randomIndex(arr) {
     return Math.floor(Math.random() * arr.length);
 }
 
+
 // Make a basic server
-app = express();
+const app = express();
+// Allow requests from other origins/machines
+app.use(cors());
 
 // Set up the server routes
 app.get("/", (req, res) => {
@@ -34,6 +39,15 @@ app.get("/beasts/random", (req, res) => {
 app.get("/beasts/:id", (req, res) => {
     const filtered = beasts.filter(beast => beast.id === Number(req.params.id));
     res.send(filtered[0]);
+})
+
+app.post("/beasts", (req, res) => {
+    // Grab the beast data
+
+    // Add it to list of beasts
+
+    // Return a message saying it worked
+
 })
 
 module.exports = app;
