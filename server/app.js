@@ -15,6 +15,8 @@ function randomIndex(arr) {
 const app = express();
 // Allow requests from other origins/machines
 app.use(cors());
+// Tell Express to read the body of POST requests
+app.use(express.json())
 
 // Set up the server routes
 app.get("/", (req, res) => {
@@ -43,12 +45,13 @@ app.get("/beasts/:id", (req, res) => {
 
 app.post("/beasts", (req, res) => {
     // Grab the beast data
-    const newBeast = req.json();
+    const newBeast = req.body;
+    // Select an ID for the new beast
+    newBeast["id"] = beasts.length;
     // Add it to list of beasts
-
-    // Return a message saying it worked
-
-    res.send(newBeast)
+    beasts.push(newBeast)
+    // Return the body of the request
+    res.status(200).send(newBeast);
 
 })
 
