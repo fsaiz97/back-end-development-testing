@@ -23,7 +23,8 @@ async function displayBeastData() {
 
         // Create image element
         const img = document.createElement("img");
-        img.src = "../server/" + beast.sprite || "assets/images/default.png";
+        path = beast.sprite || "assets/images/default.png";
+        img.src = "../server/" + path
         img.alt = beast.name;
 
         // Set element's content
@@ -60,6 +61,7 @@ async function createNewBeast(e) {
 
     if(response.status == 200) {
         alert("Creature created");
+        window.location.reload();
     }
 }
 

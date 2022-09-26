@@ -13,6 +13,8 @@ function randomIndex(arr) {
 
 // Make a basic server
 const app = express();
+
+// Middleware
 // Allow requests from other origins/machines
 app.use(cors());
 // Tell Express to read the body of POST requests
