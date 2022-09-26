@@ -6,8 +6,12 @@ express = require("express");
 app = express();
 
 // Set up the server routes
-app.get("/", (request, response) => {
-    response.send("Hello, World!");
+app.get("/", (req, res) => {
+    res.send("Welcome to the Bestiary!");
 });
+
+app.get("/beasts", (req, res) => {
+    res.send(["Kelpie", "Minotaur", "Hydra"]);
+})
 
 module.exports = app;
