@@ -11,7 +11,7 @@ app.get("/", (req, res) => {
 });
 
 app.get("/beasts", (req, res) => {
-    res.send(["Kelpie", "Minotaur", "Hydra"]);
+    res.send(["Kelpie", "Minotaur", "Hydra", "Hippogriff"]);
 })
 
 module.exports = app;
