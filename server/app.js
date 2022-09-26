@@ -39,8 +39,13 @@ app.get("/beasts/random", (req, res) => {
 })
 
 app.get("/beasts/:id", (req, res) => {
-    const filtered = beasts.filter(beast => beast.id === Number(req.params.id));
-    res.send(filtered[0]);
+    if (req.params.id >= beasts.length) {
+        res.status(404).send({ error: "This beast is extinct."});
+    } else {
+        const filtered = beasts.filter(beast => beast.id === Number(req.params.id));
+        res.send(filtered[0]);
+    }
+    
 })
 
 app.post("/beasts", (req, res) => {
