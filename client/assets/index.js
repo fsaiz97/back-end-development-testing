@@ -18,10 +18,18 @@ async function displayBeastData() {
     // Loop through the beast data
     for (let beast of beasts) {
         // Create an HTML element
-        const elem = document.createElement("li");
+        const elem = document.createElement("div");
+        elem.className = "beast";
+
+        // Create image element
+        const img = document.createElement("img");
+        img.src = "assets/images/0.jpg";
+        img.alt = "Monster"
+        img.width = "30";
 
         // Set element's content
         elem.textContent = beast["name"];
+        elem.append(img)
 
         // Add the element to the cage
         cage.appendChild(elem);
@@ -29,3 +37,20 @@ async function displayBeastData() {
 }
 
 displayBeastData();
+
+function createNewBeast() {
+    e.preventDefault();
+
+    // Extract data into object
+    const data = {
+        name: e.target.name,
+        encounterRate: e.target.encounterRate
+    }
+
+    console.log(data);
+
+    // Set the options for the fetch request
+
+    // Make a fetch request sending the data
+    //fetch("http://localhost:3000/beasts", )
+}
