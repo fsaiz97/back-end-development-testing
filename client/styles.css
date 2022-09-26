@@ -1,5 +1,4 @@
 * {
-    background-color: burlywood;
     color: rgb(62, 33, 5);
     box-sizing: border-box;
     margin: 0 auto;
@@ -7,6 +6,8 @@
 }
 
 body {
+    background-image: url("../server/assets/images/background.jpg");
+    background-size: 150px;
     width: 90%;
     padding-bottom: 2%;
 }
@@ -14,15 +15,15 @@ body {
 h1 {
     border: 1px solid;
     margin: 10px;
+    background-color: white;
 }
 
-a {
-    background-color: transparent;
+#cage {
+    background-color: rgba(57, 90, 41, 0.813);
 }
 
 .beast {
     width: 70%;
-    background-color: rgb(60, 147, 60);
     padding: 10px;
 }
 
