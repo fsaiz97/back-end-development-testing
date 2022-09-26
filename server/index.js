@@ -1,12 +1,4 @@
-const express = require("express");
-
-// Make a basic server
-app = express();
-
-// Set up the server routes
-app.get("/", (request, response) => {
-    response.send("Hello, World!");
-});
+const app = require("./app");
 
 // Start the server listening
-app.listen(3000)
+app.listen(3000);
