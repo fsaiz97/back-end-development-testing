@@ -39,8 +39,19 @@ app.get("/beasts/random", (req, res) => {
 })
 
 app.get("/beasts/:id", (req, res) => {
-    const filtered = beasts.filter(beast => beast.id === Number(req.params.id));
-    res.send(filtered[0]);
+    // const filtered = beasts.filter(beast => beast.id === Number(req.params.id));
+    // res.send(filtered[0]);
+
+    // set up regexs
+    const idRegex = /\d+/;
+    const nameRegex = /\w+/;
+
+    // check if the search term is an integer
+    if (idRegex.test(req.params.id)) {
+        res.status(200).send(beasts[req.params.id]);
+    } else {
+        res.status(404).send({ error: "Monster not found."})
+    }
 })
 
 app.post("/beasts", (req, res) => {
