@@ -43,12 +43,12 @@ app.get("/beasts/:id", (req, res) => {
 
 app.post("/beasts", (req, res) => {
     // Grab the beast data
-
+    const newBeast = req.json();
     // Add it to list of beasts
 
     // Return a message saying it worked
 
-    res.send("I am working!")
+    res.send(newBeast)
 
 })
 
