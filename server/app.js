@@ -4,6 +4,10 @@ const express = require("express");
 
 const beasts = require("./beasts");
 
+function randomIndex(arr) {
+    return Math.floor(Math.random() * arr.length);
+}
+
 // Make a basic server
 app = express();
 
@@ -21,6 +25,11 @@ app.get("/beasts", (req, res) => {
 //     const filtered = beasts.filter(beast => beast.name === req.params.name);
 //     res.send(filtered[0]);
 // })
+
+app.get("/beasts/random", (req, res) => {
+    let index = randomIndex(beasts);
+    res.send(beasts[index]);
+})
 
 app.get("/beasts/:id", (req, res) => {
     const filtered = beasts.filter(beast => beast.id === Number(req.params.id));
