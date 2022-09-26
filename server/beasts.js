@@ -69,6 +69,22 @@ let beasts = [
         description: "A tall, yellow flightless bird often seen roaming the grasslands. If you can lure it with vegetables, it will let you ride it.",
         encounterRate: 0.3,
         loot: ["Feather"]
+    }, {
+        id: 8,
+        name: "Redcap",
+        habitat: "Ruined Scottish castles",
+        dangerRating: 2,
+        description: "A type of malevolent, murderous goblin. They are said to inhabit ruined castles along the Anglo-Scottish border, especially those that were the scenes of tyranny or wicked deeds and is known for soaking their cap in the blood of their victims.",
+        encounterRate: 0.15,
+        loot: ["Blood-soaked cap", "Iron boots", "Pike"]
+    }, {
+        id: 9,
+        name: "Kraken",
+        habitat: "Seas around Norway",
+        dangerRating: 4,
+        description: "A gigantic squid with a reputation for attacking ships unlucky enough to cross it's path.",
+        encounterRate: 0.06,
+        loot: ["Tentacles", "Beak"]
     }
 
 ];
