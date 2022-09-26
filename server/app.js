@@ -48,6 +48,8 @@ app.post("/beasts", (req, res) => {
 
     // Return a message saying it worked
 
+    res.send("I am working!")
+
 })
 
 module.exports = app;
