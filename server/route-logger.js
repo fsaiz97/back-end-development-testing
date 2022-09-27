@@ -1,4 +1,4 @@
-function logRoute(req, ers) {
+function logRoute(req, res) {
     console.log(req.method, req.originalUrl)
 
     next();
