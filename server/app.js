@@ -16,7 +16,7 @@ function middlewareSetup(app) { // Allow requests from other origins/machines
     app.use(express.json())
 
     // Add middleware to log route
-    // app.use(logRoute());
+    app.use(logRoute);
 
     return app;
 }
